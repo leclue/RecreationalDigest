@@ -7,6 +7,7 @@
 
 # Reload login scripts
 source /home/ec2-user/.profile 
+echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> /home/ec2-user/.bashrc
 
 # Install ruby 1.9.3
 rvm install 1.9.3 
@@ -20,6 +21,11 @@ read secret
 
 # Activate New ruby version
 rvm use 1.9.3
+
+# Install Ruby Gems
+wget http://rubyforge.org/frs/download.php/76729/rubygems-1.8.25.tgz
+tar -xzvf rubygems-1.8.25.tgz
+sudo ruby ./rubygems-1.8.25/setup.rb
 
 # Install Gems
 gem install uuidtools json httparty bigdecimal nokogiri
