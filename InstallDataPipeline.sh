@@ -21,6 +21,7 @@ read secret
 
 # Activate New ruby version
 rvm use 1.9.3
+echo "rvm use 1.9.3" >> /home/ec2-user/.bashrc
 
 # Install Ruby Gems
 wget http://rubyforge.org/frs/download.php/76729/rubygems-1.8.25.tgz
