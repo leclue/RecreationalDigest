@@ -1,7 +1,7 @@
 # Python Script that handles GET, POST and PUT requests to an ElasticSearch domain. It passes request parameters in the body (payload) of the request and the Signed SigV4 Authentication information is passed in an Authorization header. 
 
 # Import required libraries
-import sys, os, base64, datetime, hashlib, hmac, urllib, requests 
+import sys, os, base64, datetime, hashlib, hmac, urllib, requests, json
 
 # Read AWS access key from env. variables or configuration file. Best practice is NOT
 # to embed credentials in code
@@ -97,6 +97,7 @@ request_url = 'https://' + endpoint + canonical_uri
 
 print '\nBEGIN REQUEST++++++++++++++++++++++++++++++++++++'
 print 'Request: ' + request_url
+print headers
 if method == 'GET':
     r = requests.get(request_url, data=payload, headers=headers)
 
